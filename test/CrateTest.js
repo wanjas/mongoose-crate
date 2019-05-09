@@ -5,7 +5,8 @@ const sinon = require('sinon')
 const path = require('path')
 const os = require('os')
 const mongoose = require('mongoose')
-const mockgoose = require('mockgoose')
+const Mockgoose = require('mockgoose').Mockgoose
+const mockgoose = new Mockgoose(mongoose)
 const async = require('async')
 const Crate = require('../lib/Crate')
 const createSchema = require('./fixtures/StubSchema')
@@ -18,8 +19,8 @@ const it = require('mocha').it
 
 describe('Crate', () => {
   before((done) => {
-    mockgoose(mongoose).then(() => {
-      mongoose.Promise = Promise
+    mockgoose.prepareStorage().then(() => {
+      // mongoose.Promise = Promise
       mongoose.connect('mongodb://crate/testdb', done)
     })
   })
@@ -185,11 +186,11 @@ describe('Crate', () => {
 
         storage.remove.callCount.should.equal(0)
 
-        model.remove()
+        model.remove().then(() => {
+          storage.remove.callCount.should.equal(1)
 
-        storage.remove.callCount.should.equal(1)
-
-        done()
+          done()
+        })
       })
     })
   })
@@ -222,11 +223,10 @@ describe('Crate', () => {
 
             storage.remove.callCount.should.equal(0)
 
-            model.remove()
-
-            storage.remove.callCount.should.equal(1)
-
-            done()
+            model.remove().then(() => {
+              storage.remove.callCount.should.equal(1)
+              done()
+            })
           })
         })
       })
