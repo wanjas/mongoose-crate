@@ -11,7 +11,7 @@
     "attachments",
     "files"
   ],
-  "version": "1.2.0",
+  "version": "1.2.3",
   "homepage": "https://github.com/wanjas/mongoose-crate",
   "repository": {
     "type": "git",
