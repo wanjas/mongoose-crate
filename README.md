@@ -1,5 +1,12 @@
 # mongoose-crate
 
+> It is a fork of Alex Potsides's [mongoose-crate@1.1.0](https://www.npmjs.com/package/mongoose-crate)\
+> Original module depends on old version of [mmmagic](https://www.npmjs.com/package/mmmagic) that requires python and isn't buildable with Node 12. This fork uses [mime-types](https://www.npmjs.com/package/mime-types) instead.
+>
+> This module will throw an error if file has unknown mime-type.    
+> P.s. please, try to avoid any magic especially black one.
+
+
 [![Dependency Status](https://david-dm.org/achingbrain/mongoose-crate.svg?theme=shields.io)](https://david-dm.org/achingbrain/mongoose-crate) [![devDependency Status](https://david-dm.org/achingbrain/mongoose-crate/dev-status.svg?theme=shields.io)](https://david-dm.org/achingbrain/mongoose-crate#info=devDependencies) [![Build Status](https://img.shields.io/travis/achingbrain/mongoose-crate/master.svg)](https://travis-ci.org/achingbrain/mongoose-crate) [![Coverage Status](http://img.shields.io/coveralls/achingbrain/mongoose-crate/master.svg)](https://coveralls.io/r/achingbrain/mongoose-crate)
 
 mongoose-crate is a plugin for [Mongoose](http://mongoosejs.com/) for attaching files to documents.
